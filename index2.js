@@ -1,4 +1,5 @@
-import { Corpus } from 'tiny-tfidf'
+const TfIdf = require('node-tfidf')
+const tfidf = new TfIdf()
 
 // Initialize a corpus
 const listTerm = ['agents', 'browsing', 'learning', 'mobile', 'mobile learning']
@@ -8,16 +9,16 @@ const listWord = [
   'Applying machine learning to learning agents'
 ]
 
-// Create a corpus
-const corpus = new Corpus(listTerm, listWord)
-
 // Get the TF-IDF of a term
 ;(async () => {
-  // Model 1
+  for (let i = 0; i < listWord.length; i++) {
+    await tfidf.addDocument(`${listWord[i]}`)
+  }
   for (let i = 0; i < listTerm.length; i++) {
-    const resultTFIDF = await corpus.getTopTermsForDocument(listTerm[i])
     console.log(listTerm[i])
-    console.log(resultTFIDF)
+    await tfidf.tfidfs(listTerm[i], function (i, measure) {
+      console.log(`\tDocument ${[i + 1]} : ${measure}`)
+    })
     console.log('---')
   }
 })()
