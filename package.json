@@ -1,0 +1,23 @@
+{
+  "name": "tfidf-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdw1p/tfidf-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdw1p/tfidf-task/issues"
+  },
+  "homepage": "https://github.com/cdw1p/tfidf-task#readme",
+  "dependencies": {
+    "tiny-tfidf": "^0.9.1"
+  }
+}
